@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Music Player</title>
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Righteous&family=Syncopate&display=swap"
+    rel="stylesheet">
+
+<body>
+  <div class="container">
+    <div id="player">
+      <div class="music-container" id="music-container">
+        <audio src="" id="audio" preload="auto"></audio>
+        <div class="music-info" id="music-info">
+          <div id="music-info-header">
+            <h4 id="time-display">0:00 / 2:51</h4>
+            <h4 id="song-title"></h4>
+          </div>
+          <div class="progress-container" id="progress-container">
+            <div class="progress" id="progress"></div>
+          </div>
+          <div class="navigation">
+            <i class="fa-solid fa-backward action-btn" id="prev"></i>
+            <i class="fa-solid fa-stop action-btn btn-big" id="stop"></i>
+            <i class="fa-solid fa-play action-btn btn-big" id="play"></i>
+            <i class="fa-solid fa-forward action-btn" id="next"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="playlist">
+        <ul>
+          <li>
+            <p class="song">hey</p>
+          </li>
+          <li>
+            <p class="song">ukulele</p>
+          </li>
+          <li>
+            <p class="song">summer</p>
+          </li>
+          <li>
+            <p class="song">hip hop</p>
+          </li>
+          <li>
+            <p class="song">big room</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="https://kit.fontawesome.com/7c267f13dc.js" crossorigin="anonymous"></script>
+  <script src="music-player.js"></script>
+</body>
+
+</html>

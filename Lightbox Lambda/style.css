@@ -1,0 +1,274 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: helvetica;
+
+  /* elements does not get selected */
+  user-select: none;
+}
+
+/* --- Variables --- */
+:root {
+  --modal-height: 80vh;
+}
+
+/* --- Utilties --- */
+.bg-gradient {
+  background-image: linear-gradient(
+    to bottom, 
+    hsl(223, 59%, 47%), 
+    hsl(223, 83%, 64%),
+    hsl(223, 77%, 69%),
+    hsl(223, 86%, 78%),
+    hsl(223, 81%, 84%),
+    hsl(223, 88%, 92%)
+    );
+}
+
+/* Grid Container */
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* gap: 0.5rem; */
+  /* margin: 0.5rem; */
+
+    /* display: none; */
+}
+
+/* Card */
+.card {
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+.card h3{
+  color: #222;
+  transform: translateY(40%);
+  opacity: 0;
+  transition: all 500ms ease-in;
+}
+
+/* overlap img & content */
+.card img,
+.card-content {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+
+.card img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  z-index: 2;
+  transition: all 500ms ease-in;
+}
+
+.card:hover h3{
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.card:hover img {
+  opacity: 0;
+}
+
+.card-content {
+  /* align-self: center; */
+  /* justify-self: end; */
+  margin: auto;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* --- Modal Container --- */
+#modal {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  user-select: none;
+
+  height: 100vh;
+  width: 100%;
+
+  grid-template-columns: 7.5vw 85vw 7.5vw; 
+
+
+  /* place-content: center; */
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+
+  overflow: hidden;
+
+  /*   display: grid; */
+  place-content: center;
+}
+
+/* --- Modal --- */
+#modal-container {
+  max-height: 100%;
+  max-width: 100%;
+
+  display: grid;
+  place-content: center;
+
+  grid-column: 2 / 3;
+}
+
+/* --- Icon Section --- */
+#icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+}
+
+#close-btn {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.5s;
+  margin-left: 1rem;
+  z-index: 2;
+}
+
+#full {
+  cursor: pointer;
+  z-index: 4;
+}
+
+#full {
+  transition: 0.3s;
+  font-size: 1.6rem;
+}
+
+#full:hover {
+  transform: scale(1.2);
+}
+
+/* --- Slide Buttons --- */
+#prev,
+#next {
+  font-size: 2rem;
+  cursor: pointer;
+  /* top: 50%; */
+  margin: auto;
+  grid-row: 1 / -1;
+  transition: 0.5s;
+}
+
+#prev {
+  left: 0;
+  grid-column: 1 / 2;
+}
+
+#next {
+  right: 0;
+  grid-column: 3 / 4;
+}
+
+#prev:hover,
+#next:hover,
+#close-btn:hover {
+  color: rgba(80, 80, 80, 0.8);
+}
+
+/* responsive image size by setting only a maximum height */
+#modal-img {
+  /* set a max-height so that the image can't grow bigger than the screen */
+  max-height: var(--modal-height);
+  max-width: 100%;
+  margin: auto;
+  object-fit: cover;
+}
+
+/* setting the fullscreen-size of modal-img */
+#modal:fullscreen #modal-img {
+  max-height: var(--modal-height);
+}
+
+#caption {
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 1rem;
+
+  /* display: none; */
+}
+
+#index {
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-top: 1.5rem;
+  transform: translateX(-50%);
+
+  /* display: none; */
+}
+
+@media (max-width: 480px) {
+  .card-content {
+    display: none;
+  }
+  #fullScreen-btn {
+    display: none;
+  }
+}
+
+/* --- Keyframe Animations --- */
+@keyframes zoom-in {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes zoom-out {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation: fade-in 800ms ease-in;
+}

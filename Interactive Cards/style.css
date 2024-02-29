@@ -1,0 +1,142 @@
+/* --- Reset --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: helvetica;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* --- Layout Elements --- */
+.container {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  background-color: #222;
+}
+
+.card-container {
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0.5rem;
+  gap: 0.5rem;
+}
+
+/* --- Card Styling ---*/
+.card {
+  width: 100%;
+  min-height: 35vh;
+  aspect-ratio: 1 / 1.4;
+
+  display: grid;
+  position: relative;
+  overflow: hidden;
+}
+
+.card img,
+.card .content {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.card img {
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  position: absolute;
+  left: -10%;
+  top: -10%;
+  transition: transform 600ms ease-in-out;
+}
+
+.card .content {
+  transform: translateY(70%);
+  transition: transform 1200ms, opacity 200ms ease-in-out;
+}
+
+.card .content a,
+.card .content p {
+  opacity: 0;
+}
+
+/* --- Hover Effects --- */
+.card:hover img {
+  transform: translateY(-5%);
+}
+
+.card:hover .content {
+  transform: translateY(0%);
+}
+
+.card:hover .content a,
+.card:hover .content p {
+  opacity: 1;
+}
+
+/* --- Content Styling --- */
+.content {
+  transition: transform 800ms ease-in-out;
+
+  height: 100%;
+  color: #fff;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.content h4 {
+  font-size: 1.4rem;
+  margin: 1rem;
+}
+
+.content p {
+  margin: 1rem;
+}
+
+.content a {
+  background-color: #000;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  margin: 1rem;
+}
+
+.content p,
+.content a {
+  opacity: 0;
+  transition: opacity 1000ms ease-in-out;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 880px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+    min-height: 80vh;
+  }
+}
+
+@media (max-width: 500px) {
+  .card-container {
+    grid-template-columns: repeat(1, 1fr);
+    min-height: 100vh;
+  }
+
+  .card {
+    background-position: center bottom;
+  }
+
+  .content {
+    transform: translateY(0);
+  }
+
+  .card p,
+  .card a {
+    opacity: 1;
+  }
+}

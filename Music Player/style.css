@@ -1,0 +1,144 @@
+/* --- Reset --- */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  list-style: none;
+}
+
+/* --- Custom Properties --- */
+:root {
+  --dark: #101c36;
+  --light: #fff;
+  --prime: green;
+}
+
+body{
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  background-color: var(--dark);
+}
+
+.music-container{
+  background-color: blanchedalmond;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Music Player */
+#player{ 
+  display: grid;
+  place-content: center;
+  background-color: green;
+  margin: auto;
+}
+
+/* Playlist */
+.playlist{
+  background-color: aqua;
+}
+
+.playlist ul li{
+  color: #000;
+}
+
+.playlist ul li:nth-child(even) {
+  background: lightgreen;
+}
+
+.song{
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.music-info{
+  background-color: pink;
+  padding: 10px;
+  border-radius: 5px;
+  flex-grow: 1;
+  margin: 1rem;
+  min-width: 250px;
+}
+
+.music-container.play .music-info h4{
+  opacity: 1;
+}
+
+.music-info h4{
+  text-align: center;
+  margin-inline: 1rem;
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+}
+
+.progress-container{
+  height: 10px;
+  background-color: blueviolet;
+  border-radius: 3px;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.progress{
+  background-color: #fff;
+  height: 100%;
+  width: 0%;
+  border-radius: 3px;
+}
+
+.navigation-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  z-index: 3;
+  padding: 10px;
+}
+
+.img-container img{
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+
+  animation: rotate 3s linear infinite;
+  animation-play-state: paused;
+}
+
+.navigation{
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:  0.5rem 2rem;
+}
+
+@keyframes rotate {
+  from{
+    transform: rotate(0deg);
+  }
+
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+.music-container.play .img-container img{
+  animation-play-state: running;
+}
+
+.action-btn{
+  font-size: 25px;
+  cursor: pointer;
+  padding-inline: 5px;
+}
+
+.btn-big{
+  font-size: 2rem;
+}
+
+

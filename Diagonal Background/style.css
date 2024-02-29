@@ -1,0 +1,19 @@
+/* https://aganaplocha.com/index.html */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: helvetica;
+}
+
+#container {
+  min-height: 100vh;
+  /*   background-image: linear-gradient(#fff, #333 70%); */
+  display: grid;
+  place-content: center;
+}
+
+h1 {
+  color: hotpink;
+}
