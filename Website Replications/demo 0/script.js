@@ -5,11 +5,11 @@ window.addEventListener('scroll', changeBackground)
 
 function changeBackground(){
   if (window.pageYOffset < 1*window.innerHeight){
-    bg_layer.style.backgroundImage = "url('https://source.unsplash.com/1600x1600?mountain')";
+    bg_layer.style.backgroundImage = "url('https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
   }
   
   if (window.pageYOffset > 1*window.innerHeight){
-    bg_layer.style.backgroundImage = "url('https://source.unsplash.com/1600x800?climbing')";
+    bg_layer.style.backgroundImage = "url('https://images.unsplash.com/photo-1508287459906-37445322fdf6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
   }
 }
 
