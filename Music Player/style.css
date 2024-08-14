@@ -1,5 +1,5 @@
 /* --- Reset --- */
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -11,52 +11,72 @@
 :root {
   --dark: #101c36;
   --light: #fff;
-  --prime: green;
+  --radius-1: 15px;
 }
 
-body{
+body {
   display: grid;
   place-content: center;
   min-height: 100vh;
-  background-color: var(--dark);
+  
+  background-image: url(./mountain_sunrise.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.music-container{
-  background-color: blanchedalmond;
-
+.music-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 /* Music Player */
-#player{ 
+#player {
   display: grid;
   place-content: center;
-  background-color: green;
+
   margin: auto;
+
+  border: rgba(250, 250, 250, 0.3) 2px solid;
+  border-radius: var(--radius-1);
+
+  background-color: rgba(220, 220, 220, 0.3);
+  backdrop-filter: blur(0.3rem);
+
+  color: var(--light);
+  text-shadow: var(--dark) 3px 3px 10px;
+}
+
+#song-title{
+  margin:  1.2rem 0;
 }
 
 /* Playlist */
-.playlist{
-  background-color: aqua;
+.playlist ul li {
+  border-bottom: rgba(250, 250, 250, 0.3) 2px solid;
+  transition: all 300ms ease-in-out;
 }
 
-.playlist ul li{
-  color: #000;
+.playlist ul li:first-child {
+  border-top: rgba(250, 250, 250, 0.3) 2px solid;
 }
 
-.playlist ul li:nth-child(even) {
-  background: lightgreen;
+.playlist ul li:last-child {
+  border: none;
+  border-radius: 0 0 var(--radius-1) var(--radius-1);
 }
 
-.song{
+.playlist ul li:hover {
+  background-color: rgba(98, 154, 169, 0.6);
+}
+
+.song {
   padding: 1rem;
   cursor: pointer;
 }
 
-.music-info{
-  background-color: pink;
+.music-info {
   padding: 10px;
   border-radius: 5px;
   flex-grow: 1;
@@ -64,32 +84,32 @@ body{
   min-width: 250px;
 }
 
-.music-container.play .music-info h4{
+.music-container.play .music-info h4 {
   opacity: 1;
 }
 
-.music-info h4{
+.music-info h4 {
   text-align: center;
   margin-inline: 1rem;
   transition: transform 0.3s ease-in, opacity 0.3s ease-in;
 }
 
-.progress-container{
+.progress-container {
   height: 10px;
-  background-color: blueviolet;
+  background-color: rgba(220, 220, 220, 0.55);
   border-radius: 3px;
   margin: 5px 0;
   cursor: pointer;
 }
 
-.progress{
+.progress {
   background-color: #fff;
   height: 100%;
   width: 0%;
   border-radius: 3px;
 }
 
-.navigation-container{
+.navigation-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,7 +119,7 @@ body{
   padding: 10px;
 }
 
-.img-container img{
+.img-container img {
   height: 150px;
   width: 150px;
   object-fit: cover;
@@ -109,36 +129,34 @@ body{
   animation-play-state: paused;
 }
 
-.navigation{
+.navigation {
   min-width: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin:  0.5rem 2rem;
+  margin: 0.5rem 2rem;
 }
 
 @keyframes rotate {
-  from{
+  from {
     transform: rotate(0deg);
   }
 
-  to{
+  to {
     transform: rotate(360deg);
   }
 }
 
-.music-container.play .img-container img{
+.music-container.play .img-container img {
   animation-play-state: running;
 }
 
-.action-btn{
+.action-btn {
   font-size: 25px;
   cursor: pointer;
   padding-inline: 5px;
 }
 
-.btn-big{
+.btn-big {
   font-size: 2rem;
 }
-
-
